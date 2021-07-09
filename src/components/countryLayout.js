@@ -1,4 +1,6 @@
 import React, { memo } from 'react';
+import { Helmet } from "react-helmet";
+import { useStaticQuery, graphql } from 'gatsby';
 import {
   container,
   heading,
@@ -47,6 +49,17 @@ import {
 //   },
 
 const CountryLayout = ({ pageContext }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          siteUrl
+        }
+      }
+    }
+  `);
+
   const {
     name,
     nativeName,
@@ -59,13 +72,18 @@ const CountryLayout = ({ pageContext }) => {
 
   return (
     <main className={container}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{name} | {data.site.siteMetadata.title}</title>
+        <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
+      </Helmet>
+
       <h1 className={heading}>{name} - {nativeName}</h1>
-      <img src={flag} />
+      <img src={flag} alt={name} />
       <p><b>Region: </b>{region}</p>
       <p><b>Subregion: </b>{subregion}</p>
       <p><b>Population: </b>{new Intl.NumberFormat('en-US').format(population)}</p>
       <p><b>Capital: </b>{capital}</p>
-
     </main>
   )
 }

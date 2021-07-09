@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     siteUrl: "https://gatsbyblog45909.gatsbyjs.io",
-    title: "My First Gatsby Blog",
+    title: "Countrypedia",
   },
   plugins: [
     "gatsby-plugin-gatsby-cloud",
