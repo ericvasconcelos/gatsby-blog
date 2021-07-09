@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://gatsbyblog45909.gatsbyjs.io",
+    siteUrl: "https://countrypedia.gatsbyjs.io",
     title: "Countrypedia",
   },
   plugins: [

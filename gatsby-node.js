@@ -14,6 +14,7 @@ exports.createPages = async ({ actions }) => {
       path,
       component: CountryTemplate,
       context: {
+        path,
         ...country,
       },
     })

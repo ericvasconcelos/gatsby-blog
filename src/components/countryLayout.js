@@ -48,7 +48,7 @@ import {
 //     cioc: 'BRA'
 //   },
 
-const CountryLayout = ({ pageContext }) => {
+const CountryLayout = ({ path, pageContext }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -59,6 +59,8 @@ const CountryLayout = ({ pageContext }) => {
       }
     }
   `);
+
+    console.log(path);
 
   const {
     name,
@@ -75,7 +77,7 @@ const CountryLayout = ({ pageContext }) => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>{name} | {data.site.siteMetadata.title}</title>
-        <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
+        <link rel="canonical" href={`${data.site.siteMetadata.siteUrl}/${path}`} />
       </Helmet>
 
       <h1 className={heading}>{name} - {nativeName}</h1>
