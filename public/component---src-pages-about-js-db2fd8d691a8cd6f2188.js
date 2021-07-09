@@ -1,2 +1,0 @@
-(self.webpackChunkblog=self.webpackChunkblog||[]).push([[682],{5518:function(e,t,u){"use strict";u.r(t);var l=u(7294),r=u(85),i=function(){return l.createElement(r.Z,{pageTitle:"About Me"},l.createElement("p",null,"Hi there! I'm the proud creator of this site, which I built with Gatsby."))};t.default=(0,l.memo)(i)}}]);
-//# sourceMappingURL=component---src-pages-about-js-db2fd8d691a8cd6f2188.js.map
