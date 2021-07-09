@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-pages-blog-js","path":"/blog/","result":{"data":{"allFile":{"nodes":[{"name":"another-post"},{"name":"my-first-post"},{"name":"yet-another-post"}]}},"pageContext":{}},"staticQueryHashes":["512065377"]}
+{"componentChunkName":"component---src-pages-blog-js","path":"/blog/","result":{"data":{"allFile":{"nodes":[{"name":"yet-another-post"},{"name":"my-first-post"},{"name":"another-post"}]}},"pageContext":{}},"staticQueryHashes":["512065377"]}

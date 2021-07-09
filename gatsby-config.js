@@ -20,16 +20,22 @@ module.exports = {
         icon: "src/images/icon.png",
       },
     },
-    "gatsby-plugin-mdx",
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        defaultLayouts: {
+          default: `${__dirname}/src/components/blogLayout.js`,
+        }
+      }
+    }, 
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "blog",
-        path: `${__dirname}/blog`,
+        path: `${__dirname}/src/pages/blog`,
       },
-      __key: "blog",
     },
   ],
 };
