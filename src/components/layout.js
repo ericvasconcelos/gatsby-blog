@@ -24,7 +24,9 @@ const Layout = ({ pageTitle, children }) => {
 
   return (
     <main className={container}>
-      <Helmet>
+      <Helmet htmlAttributes={{
+        lang: 'en',
+      }}>
         <meta charSet="utf-8" />
         <title>{pageTitle} | {data.site.siteMetadata.title}</title>
         <link rel="canonical" href={data.site.siteMetadata.siteUrl} />

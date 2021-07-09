@@ -60,7 +60,7 @@ const CountryLayout = ({ path, pageContext }) => {
     }
   `);
 
-    console.log(path);
+  console.log(pageContext);
 
   const {
     name,
@@ -70,13 +70,17 @@ const CountryLayout = ({ path, pageContext }) => {
     subregion,
     population,
     capital,
+    altSpellings,
   } = pageContext;
 
   return (
     <main className={container}>
-      <Helmet>
+      <Helmet htmlAttributes={{
+        lang: 'en',
+      }}>
         <meta charSet="utf-8" />
         <title>{name} | {data.site.siteMetadata.title}</title>
+        <meta name="description" content={altSpellings.join(', ')} />
         <link rel="canonical" href={`${data.site.siteMetadata.siteUrl}/${path}`} />
       </Helmet>
 
