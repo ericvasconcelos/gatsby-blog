@@ -1,9 +1,9 @@
 {
-  "name": "blog",
+  "name": "countrypedia",
   "version": "1.0.0",
   "private": true,
-  "description": "blog",
-  "author": "Eric Vasconcelos de Oliveira",
+  "description": "A static web app with all countries around the world",
+  "author": "Eric Vasconcelos",
   "keywords": [
     "gatsby"
   ],

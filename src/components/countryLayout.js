@@ -81,7 +81,7 @@ const CountryLayout = ({ path, pageContext }) => {
         <meta charSet="utf-8" />
         <title>{name} | {data.site.siteMetadata.title}</title>
         <meta name="description" content={altSpellings.join(', ')} />
-        <link rel="canonical" href={`${data.site.siteMetadata.siteUrl}/${path}`} />
+        <link rel="canonical" href={data.site.siteMetadata.siteUrl + path} />
       </Helmet>
 
       <h1 className={heading}>{name} - {nativeName}</h1>
