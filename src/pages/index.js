@@ -1,5 +1,6 @@
 import React, { memo, useEffect, useState, useRef } from 'react';
 import Layout from '~/components/layout';
+import Card from '~/components/card';
 import {
   hero,
   heroContent,
@@ -68,6 +69,8 @@ const IndexPage = () => {
           </p>
         </div>
       </div>
+
+      <Card slug="/teste" />
     </Layout>
   );
 };

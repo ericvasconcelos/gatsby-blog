@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import Header from './header';
+import Footer from './footer';
 import { heading } from './layout.module.scss';
 
 const Layout = ({ pageTitle, children }) => {
@@ -32,9 +33,13 @@ const Layout = ({ pageTitle, children }) => {
 
       <Header />
 
-      {pageTitle && pageTitle !== 'Home' && <h1 className={heading}>{pageTitle}</h1>}
+      {pageTitle && pageTitle !== 'Home' && (
+        <h1 className={heading}>{pageTitle}</h1>
+      )}
 
       {children}
+
+      <Footer />
     </>
   );
 };

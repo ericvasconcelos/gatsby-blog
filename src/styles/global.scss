@@ -3,6 +3,8 @@ body {
   margin: 0;
   font: 100% $font-main;
   color: $black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 menu {

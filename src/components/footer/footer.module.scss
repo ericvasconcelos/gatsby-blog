@@ -1,0 +1,26 @@
+.footerText {
+  text-align: center;
+  font-size: 14px;
+  margin: 0 0 12px;
+}
+
+.socialLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialIcon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  
+  &:not(:last-of-type) {
+    margin-right: 16px;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}

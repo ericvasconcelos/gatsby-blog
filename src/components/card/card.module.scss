@@ -1,0 +1,107 @@
+.card {
+  margin: 0 auto;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background-color: $white;
+  box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.3);
+  overflow: hidden;
+  transition: .3s cubic-bezier(.3, 0, 0, 1.3);
+
+  &:hover {
+    .ctaContainer {
+      display: inline;
+      margin-top: 230px;
+    }
+
+    .cardCircle {
+      background-size: cover;
+      border-radius: 0;
+      margin-top: 0;
+      height: 200px;
+    }
+
+    h2 {
+      background: $primary;
+      color: $white;
+      margin-top: 80px;
+      padding: 5px;
+
+      small {
+        color: $white
+      }
+    }
+
+    p {
+      display: none;
+    }
+  }
+}
+
+.cardCircle {
+  background: url('https://restcountries.eu/data/bra.svg') no-repeat center center;
+  background-color: $primary;
+  background-size: cover;
+  border-radius: 50%;
+  height: 200px;
+  margin-left: -10px;
+  margin-top: -70px;
+  position: absolute;
+  width: 320px;
+  transition: .3s cubic-bezier(.3, 0, 0, 1.3);
+}
+
+.cardTitle {
+  position: absolute;
+  z-index: 9999;
+  width: 100%;
+  margin-top: 150px;
+  color: $primary;
+  font-size: 24px;
+  font-weight: 200;
+  text-align: center;
+  transition: .3s cubic-bezier(.3, 0, 0, 1.3);
+}
+
+.cardDescription {
+  position: absolute;
+  z-index: 9999;
+  margin-top: 200px;
+  padding: 0 8px;
+  color: $black;
+  font-weight: 300;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.ctaContainer {
+  margin-top: 320px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: 9999;
+  transition: .3s cubic-bezier(.3, 0, 0, 1.3);
+}
+
+.cta {
+  background-clip: padding-box;
+  border: 2px solid $primary;
+  border-radius: 2px;
+  color: $primary;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 400;
+  height: 36px;
+  line-height: 36px;
+  margin-bottom: 15px;
+  padding: 0 2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.2s ease-out;
+
+  &:hover {
+    background-color: $primary;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: $white;
+  }
+}
