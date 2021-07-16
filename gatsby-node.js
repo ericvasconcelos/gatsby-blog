@@ -1,9 +1,23 @@
 const axios = require('axios');
-const path = require(`path`);
+const path = require('path');
+
+exports.onCreateWebpackConfig = ({ actions, plugins, stage }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        '~': path.resolve(__dirname, 'src'),
+        path: require.resolve('path-browserify'),
+      },
+      fallback: {
+        fs: false,
+      },
+    },
+  });
+};
 
 exports.createPages = async ({ actions }) => {
   const { createPage } = actions;
-  const CountryTemplate = path.resolve(`src/components/countryLayout.js`);
+  const CountryTemplate = path.resolve('src/pages/country/index.js');
 
   const { data } = await axios.get('https://restcountries.eu/rest/v2/all');
 
@@ -14,9 +28,9 @@ exports.createPages = async ({ actions }) => {
       path,
       component: CountryTemplate,
       context: {
-        path,
+        url: path,
         ...country,
       },
-    })
-  })
-}
+    });
+  });
+};

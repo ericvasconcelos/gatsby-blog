@@ -1,40 +1,51 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://countrypedia.gatsbyjs.io",
-    title: "Countrypedia",
+    siteUrl: 'https://countrypedia.gatsbyjs.io',
+    title: 'Countrypedia',
+  },
+  flags: {
+    DEV_SSR: true,
+    FAST_DEV: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
   },
   plugins: [
-    "gatsby-plugin-gatsby-cloud",
-    "gatsby-plugin-image",
+    'gatsby-plugin-gatsby-cloud',
+    'gatsby-plugin-image',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
-      resolve: "gatsby-plugin-google-analytics",
+      resolve: 'gatsby-plugin-sass',
       options: {
-        trackingId: "UA-40075822-3",
-      },
-    },
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
-    {
-      resolve: "gatsby-plugin-manifest",
-      options: {
-        icon: "src/images/icon.png",
+        implementation: require('sass'),
+        additionalData: `@import "src/styles/variables.scss";`,
       },
     },
     {
-      resolve: "gatsby-plugin-mdx",
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
-        defaultLayouts: {
-          default: `${__dirname}/src/components/blogLayout.js`,
-        }
-      }
-    }, 
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
+        fonts: [`Vollkorn\:700`, `Archivo\:200,400,600`],
+        display: 'swap',
+      },
+    },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "blog",
-        path: `${__dirname}/src/pages/blog`,
+        name: 'blog',
+        path: `${__dirname}/src/pages`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-40075822-3',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: 'src/images/icon.png',
       },
     },
   ],

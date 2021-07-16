@@ -1,0 +1,25 @@
+body {
+  padding: 0;
+  margin: 0;
+  font: 100% $font-main;
+  color: $black;
+}
+
+menu {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-title;
+  color: $black;
+}
