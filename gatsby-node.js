@@ -17,7 +17,7 @@ exports.onCreateWebpackConfig = ({ actions, plugins, stage }) => {
 
 exports.createPages = async ({ actions }) => {
   const { createPage } = actions;
-  const CountryTemplate = path.resolve('src/pages/country/index.js');
+  const CountryTemplate = path.resolve('src/components/country/index.js');
 
   const { data } = await axios.get('https://restcountries.eu/rest/v2/all');
 
