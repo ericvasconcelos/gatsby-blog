@@ -1,0 +1,98 @@
+.header {
+  width: 100%;
+  background-color: $white;
+  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 5%);
+  padding: 8px 0;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  
+  @media (min-width: $breakpoints-sm) {
+    max-width: $breakpoints-sm;
+  }
+
+  @media (min-width: $breakpoints-md) {
+    max-width: $breakpoints-md;
+  }
+
+  @media (min-width: $breakpoints-lg) {
+    max-width: $breakpoints-lg;
+  }
+
+  @media (min-width: $breakpoints-xl) {
+    max-width: $breakpoints-xl;
+  }
+}
+
+.logo {
+  display: flex;
+  font-family: $font-title;
+  font-size: 2rem;
+
+  svg {
+    width: 40px;
+    height: 40px;
+    fill: #6a1b9a;
+    margin-right: 8px;
+  }
+}
+
+.innerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search {
+  color: black;
+  display: flex;
+  align-items: center;
+} 
+
+.searchButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: unset;
+  background-color: transparent;
+  padding: 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.searchIcon {
+  color: black;
+}
+
+.searchInput {
+  height: 34px;
+  width: 0;
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid $gray-light;
+  outline: transparent;
+  color: $black;
+  font-family: $font-main;
+  font-size: 14px;
+  font-weight: 200;
+  letter-spacing: 0.7px;
+  transition: width 0.4s ease-in-out;
+
+  ::-webkit-input-placeholder,
+  :-ms-input-placeholder,
+  ::placeholder {
+    font-family: $font-main;
+    font-weight: 200;
+    color: $gray-lighter;
+  }
+}
+
+.searchInputOpen {
+  width: 200px;
+  padding: 0 8px;
+}
