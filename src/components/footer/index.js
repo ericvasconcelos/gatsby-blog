@@ -20,7 +20,7 @@ const Footer = () => {
           rel="noreferrer"
           className={socialIcon}
         >
-          <img src={github} alt="GitHub" />
+          <img src={github} alt="GitHub" width="24" height="24" />
         </a>
         <a
           href="https://www.linkedin.com/in/eric-vasconcelos/"
@@ -28,7 +28,7 @@ const Footer = () => {
           rel="noreferrer"
           className={socialIcon}
         >
-          <img src={linkedin} alt="Linkedin" />
+          <img src={linkedin} alt="Linkedin" width="24" height="24" />
         </a>
         <a
           href="https://www.instagram.com/ericvdeoliveira/"
@@ -36,7 +36,7 @@ const Footer = () => {
           rel="noreferrer"
           className={socialIcon}
         >
-          <img src={instagram} alt="Instagram" />
+          <img src={instagram} alt="Instagram" width="24" height="24" />
         </a>
       </nav>
     </footer>

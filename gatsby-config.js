@@ -1,6 +1,10 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://countrypedia.gatsbyjs.io',
+    siteUrl: process.env.HOST_URL,
     title: 'Countrypedia',
   },
   flags: {
@@ -23,10 +27,15 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: '@slixites/gatsby-plugin-google-fonts',
       options: {
         fonts: [`Vollkorn\:700`, `Archivo\:200,400,600`],
         display: 'swap',
+        preconnect: true,
+        attributes: {
+          rel: 'stylesheet preload prefetch',
+          as: 'style',
+        },
       },
     },
     {

@@ -71,11 +71,7 @@ const CountryLayout = ({ pageContext }) => {
 
   return (
     <>
-      <Helmet
-        htmlAttributes={{
-          lang: 'en',
-        }}
-      >
+      <Helmet htmlAttributes={{ lang: 'en' }}>
         <meta charSet="utf-8" />
         <title>
           {name} | {data.site.siteMetadata.title}

@@ -19,15 +19,15 @@ const Layout = ({ pageTitle, children }) => {
 
   return (
     <>
-      <Helmet
-        htmlAttributes={{
-          lang: 'en',
-        }}
-      >
+      <Helmet htmlAttributes={{ lang: 'en' }}>
         <meta charSet="utf-8" />
         <title>
           {pageTitle} | {data.site.siteMetadata.title}
         </title>
+        <meta
+          name="description"
+          content="Important information from all countries in just one place"
+        />
         <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
       </Helmet>
 
