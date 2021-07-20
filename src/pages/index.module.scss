@@ -1,9 +1,25 @@
 .cardList {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   column-gap: 32px;
   row-gap: 32px;
   padding: 0 16px;
   width: 100%;
   margin: 0 auto 80px;
+
+  @media (min-width: $breakpoints-sm) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: $breakpoints-lg) {
+    grid-template-columns: 1fr 1fr 1fr
+  }
+
+  @media (min-width: $breakpoints-xl) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  @media (min-width: $breakpoints-hd) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
 }
