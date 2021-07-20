@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'gatsby';
 
 import {
@@ -10,22 +10,28 @@ import {
   cardCircle,
 } from './card.module.scss';
 
-const Card = ({ slug }) => {
+const Card = ({ slug, content }) => {
+  const { name, nativeName, region, flag, capital } = content;
+
   return (
-    <div className={card}>
-      <h2 className={cardTitle}>Awesome Headline</h2>
+    <Link to={slug} className={card}>
+      <div
+        className={cardCircle}
+        style={{
+          backgroundImage: `url('${flag}')`,
+        }}
+      />
+      <h2 className={cardTitle}>{`${name} - ${nativeName}`}</h2>
       <p className={cardDescription}>
-        Aenean lacinia bibendum nulla sed consectetur. Donec ullamcorper nulla
-        non metus auctor fringilla.
+        Region: {region}
+        <br />
+        Capital: {capital}
       </p>
       <div className={ctaContainer}>
-        <Link to={slug} className={cta}>
-          Call to action
-        </Link>
+        <button className={cta}>Ver detalhes</button>
       </div>
-      <div className={cardCircle}></div>
-    </div>
+    </Link>
   );
 };
 
-export default Card;
+export default memo(Card);

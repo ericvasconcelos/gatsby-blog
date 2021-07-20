@@ -1,78 +1,45 @@
-import React, { memo, useEffect, useState, useRef } from 'react';
-import Layout from '~/components/layout';
+import React, { memo } from 'react';
+import { graphql } from 'gatsby';
 import Card from '~/components/card';
-import {
-  hero,
-  heroContent,
-  heroTitle,
-  heroDescription,
-} from './index.module.scss';
+import Hero from '~/components/hero';
+import Layout from '~/components/layout';
+import { cardList } from './index.module.scss';
 
-const randomSpeed = () => {
-  const speeds = [160, 200, 240, 300];
-  const randomNumber = Math.floor(Math.random() * (4 - 0)) + 0;
-  return speeds[randomNumber];
-};
-
-const countries = [
-  'Brazil',
-  'United States',
-  'South Africa',
-  'Japain',
-  'Australia',
-  'Spain',
-];
-
-const IndexPage = () => {
-  let letter = useRef(0);
-  let countryIndex = useRef(0);
-  const [text, setText] = useState('');
-
-  useEffect(() => {
-    const typeWriter = (country, callback) => {
-      if (letter.current < country.length) {
-        setText((oldText) => oldText + country.charAt(letter.current));
-        letter.current++;
-        setTimeout(() => typeWriter(country, callback), randomSpeed());
-      } else {
-        setTimeout(() => {
-          letter.current = 0;
-          setText(() => '');
-          countryIndex.current++;
-          callback();
-        }, 1500);
-      }
-    };
-
-    const typeAllWriter = () => {
-      if (countryIndex.current < countries.length) {
-        typeWriter(countries[countryIndex.current], typeAllWriter);
-      } else {
-        countryIndex.current = 0;
-        typeAllWriter();
-      }
-    };
-
-    const timer = typeAllWriter();
-
-    return () => clearTimeout(timer);
-  }, [letter, countryIndex]);
+const IndexPage = ({ data }) => {
+  const countries = data.allSitePage.nodes;
+  console.log(data);
 
   return (
     <Layout pageTitle="Home">
-      <div className={hero}>
-        <div className={heroContent}>
-          <h1 className={heroTitle}>{text}</h1>
-          <p className={heroDescription}>
-            <b>Countrypedia:</b> Important information from all countries in
-            just one place
-          </p>
-        </div>
-      </div>
+      <Hero />
 
-      <Card slug="/teste" />
+      <div className={cardList}>
+        {countries.map(({ path, context }) => {
+          return (
+            context.name && <Card key={path} slug="/teste" content={context} />
+          );
+        })}
+      </div>
     </Layout>
   );
 };
+
+export const query = graphql`
+  {
+    allSitePage {
+      nodes {
+        id
+        path
+        context {
+          name
+          nativeName
+          region
+          flag
+          capital
+        }
+      }
+    }
+  }
+`;
 
 export default memo(IndexPage);
