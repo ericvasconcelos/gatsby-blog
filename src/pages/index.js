@@ -7,16 +7,14 @@ import { cardList } from './index.module.scss';
 
 const IndexPage = ({ data }) => {
   const countries = data.allSitePage.nodes;
-  console.log(data);
 
   return (
     <Layout pageTitle="Home">
       <Hero />
-
       <div className={cardList}>
         {countries.map(({ path, context }) => {
           return (
-            context.name && <Card key={path} slug="/teste" content={context} />
+            context.name && <Card key={path} slug={path} content={context} />
           );
         })}
       </div>
@@ -26,7 +24,7 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   {
-    allSitePage {
+    allSitePage(skip: 30, limit: 10) {
       nodes {
         id
         path

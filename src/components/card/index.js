@@ -15,12 +15,7 @@ const Card = ({ slug, content }) => {
 
   return (
     <Link to={slug} className={card}>
-      <div
-        className={cardCircle}
-        style={{
-          backgroundImage: `url('${flag}')`,
-        }}
-      />
+      <div className={cardCircle} style={{ backgroundImage: `url(${flag})` }} />
       <h2 className={cardTitle}>{`${name} - ${nativeName}`}</h2>
       <p className={cardDescription}>
         Region: {region}
