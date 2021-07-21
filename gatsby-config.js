@@ -17,8 +17,17 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `dominantColor`,
+          quality: 75,
+        },
+      },
+    },
     {
       resolve: 'gatsby-plugin-sass',
       options: {
@@ -43,6 +52,13 @@ module.exports = {
       options: {
         name: 'blog',
         path: `${__dirname}/src/pages`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/src/images`,
       },
     },
     {

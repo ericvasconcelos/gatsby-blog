@@ -1,8 +1,8 @@
 import React from 'react';
 
-import github from '~/images/icons8-github.gif';
-import linkedin from '~/images/icons8-linkedin.gif';
-import instagram from '~/images/icons8-instagram.gif';
+import github from '~/images/icons8-github-sm.gif';
+import linkedin from '~/images/icons8-linkedin-sm.gif';
+import instagram from '~/images/icons8-instagram-sm.gif';
 
 import { footerText, socialLinks, socialIcon } from './footer.module.scss';
 
@@ -20,7 +20,7 @@ const Footer = () => {
           rel="noreferrer"
           className={socialIcon}
         >
-          <img src={github} alt="GitHub" width="24" height="24" />
+          <img src={github} alt="GitHub" width="200" height="200" />
         </a>
         <a
           href="https://www.linkedin.com/in/eric-vasconcelos/"
@@ -28,7 +28,7 @@ const Footer = () => {
           rel="noreferrer"
           className={socialIcon}
         >
-          <img src={linkedin} alt="Linkedin" width="24" height="24" />
+          <img src={linkedin} alt="Linkedin" width="72" height="72" />
         </a>
         <a
           href="https://www.instagram.com/ericvdeoliveira/"
@@ -36,7 +36,7 @@ const Footer = () => {
           rel="noreferrer"
           className={socialIcon}
         >
-          <img src={instagram} alt="Instagram" width="24" height="24" />
+          <img src={instagram} alt="Instagram" width="200" height="200" />
         </a>
       </nav>
     </footer>
