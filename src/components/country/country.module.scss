@@ -1,14 +1,51 @@
 .container {
   width: 100%;
-  max-width: $breakpoints-xl;
   margin: 32px auto;
   padding: 0 24px;
+  
+  @media (min-width: $breakpoints-sm) {
+    max-width: $breakpoints-sm;
+  }
+
+  @media (min-width: $breakpoints-md) {
+    max-width: $breakpoints-md;
+  }
+
+  @media (min-width: $breakpoints-lg) {
+    max-width: $breakpoints-lg;
+  }
+
+  @media (min-width: $breakpoints-xl) {
+    max-width: $breakpoints-xl;
+  }
 }
 
 .heading {
-  color: #6a1b9a;
+  color: $black;
 }
 
 .info {
-  margin-bottom: 8px;
+  margin-bottom: 16px;
+  letter-spacing: 0.6px;
+
+  ul {
+    margin-top: 8px;
+    padding-left: 24px;
+
+    li {
+      line-height: 1.4;
+    }
+  }
+}
+
+.flagImg {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  @media (min-width: $breakpoints-md) {
+    float: left;
+    max-width: 360px;
+    margin-right: 24px;
+  }
 }
