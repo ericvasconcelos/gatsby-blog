@@ -72,11 +72,14 @@ module.exports = {
       options: {
         name: 'Countrypedia',
         short_name: 'Countrypedia',
-        icon: 'src/images/icon.png',
         start_url: '/',
         background_color: '#f5f5f5',
         theme_color: '#6a1b9a',
         display: 'standalone',
+        icon: 'src/images/icon.png',
+        icon_options: {
+          purpose: 'any maskable',
+        },
       },
     },
     {
