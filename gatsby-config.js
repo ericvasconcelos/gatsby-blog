@@ -11,6 +11,7 @@ module.exports = {
     DEV_SSR: true,
     FAST_DEV: true,
     PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    LMDB_STORE: true,
   },
   plugins: [
     'gatsby-plugin-gatsby-cloud',
