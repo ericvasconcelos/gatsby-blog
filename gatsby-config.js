@@ -102,11 +102,15 @@ module.exports = {
         // for advanced users.
         //
         // Note: Only the flexsearch engine supports options.
-        engineOptions: 'speed',
+        engineOptions: {
+          profile: 'speed',
+          // Partial search moving forward
+          tokenize: 'forward',
+        },
         // GraphQL query used to fetch all data for the search index. This is
         // required.
         query: `
-          {
+          query {
             allSitePage {
               edges {
                 node {

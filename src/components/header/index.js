@@ -33,6 +33,8 @@ const Header = () => {
     localSearchPages: { index, store },
   } = data;
 
+  console.log(data);
+
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchValue, setSearchValue] = useState('');
   const results = useFlexSearch(searchValue, index, store).slice(0, 8);

@@ -5658,6 +5658,11 @@ flexsearch@^0.6.22, flexsearch@^0.6.32:
   resolved "https://registry.yarnpkg.com/flexsearch/-/flexsearch-0.6.32.tgz#1e20684d317af65baa445cdd9864a5f5b320f510"
   integrity sha512-EF1BWkhwoeLtbIlDbY/vDSLBen/E5l/f1Vg7iX5CDymQCamcx1vhlc3tIZxIDplPjgi0jhG37c67idFbjg+v+Q==
 
+flexsearch@^0.7.2:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/flexsearch/-/flexsearch-0.7.2.tgz#c292f982c858747831c202245c99b1de0a81e526"
+  integrity sha512-Giy6ye2pPL2ZZT/36+TNsmYHqpzmuWF9Gwv5cHZwjiqhcIjvic1LcUpIAEJSFSc7va0bUHj1YfjXmFuDSreWrQ==
+
 follow-redirects@^1.0.0, follow-redirects@^1.10.0:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.1.tgz#d9114ded0a1cfdd334e164e6662ad02bfd91ff43"

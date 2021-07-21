@@ -1,7 +1,7 @@
 const axios = require('axios');
 const path = require('path');
 
-exports.onCreateWebpackConfig = ({ actions, plugins, stage }) => {
+exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
@@ -33,4 +33,74 @@ exports.createPages = async ({ actions }) => {
       },
     });
   });
+};
+
+exports.sourceNodes = ({ actions }) => {
+  actions.createTypes(`
+    type Languages {
+      iso639_1: String
+      iso639_2: String
+      name: String
+      nativeName: String
+    }
+
+    type Currencies {
+      code: String
+      name: String
+      symbol: String
+    }
+
+    type RegioBlocs {
+      acronym: String
+      name: String
+      otherAcronyms: [String]
+      otherNames: [String]
+    }
+
+    type Translations {
+      br: String
+      de: String
+      es: String
+      fa: String
+      fr: String
+      hr: String
+      it: String
+      ja: String
+      nl: String
+      pt: String
+    }
+
+    type SitePageContext {
+      name: String
+      nativeName: String
+      flag: String
+      url: String
+      capital: String
+      population: Int
+      gini: Float
+      region: String
+      subregion: String
+      area: Int
+      latlng: [Int]
+      borders: [String]
+      timezones: [String]
+      numericCode: Int
+      callingCodes: [String]
+      topLevelDomain: [String]
+      cioc: String
+      alpha2Code: String
+      alpha3Code: String
+      demonym: String
+      languages: [Languages]
+      currencies: Currencies
+      regionalBlocs: RegioBlocs
+      translations: Translations
+      altSpellings: [String]
+    }
+
+    type SitePage implements Node @dontInfer {
+      path: String
+      context: SitePageContext
+    }
+  `);
 };
