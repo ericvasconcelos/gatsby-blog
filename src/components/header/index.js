@@ -1,5 +1,7 @@
 import React, { memo, useState, useCallback } from 'react';
 import { Link } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
+import { useFlexSearch } from 'react-use-flexsearch';
 import Logo from './logo';
 import SearchIcon from './search';
 import {
@@ -11,11 +13,29 @@ import {
   searchButton,
   searchInput,
   searchInputOpen,
+  searchBox,
+  searchCountry,
+  searchCountryFlag,
+  searchCountryTitle,
 } from './header.module.scss';
 
 const Header = () => {
+  const data = useStaticQuery(graphql`
+    query LocalSearchQuery {
+      localSearchPages {
+        index
+        store
+      }
+    }
+  `);
+
+  const {
+    localSearchPages: { index, store },
+  } = data;
+
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchValue, setSearchValue] = useState('');
+  const results = useFlexSearch(searchValue, index, store).slice(0, 8);
 
   const handleOpenSearch = useCallback(
     () => setIsSearchOpen((oldState) => !oldState),
@@ -60,6 +80,24 @@ const Header = () => {
             />
           </div>
         </div>
+        {results.length > 0 && (
+          <div className={searchBox}>
+            {results.map(({ name, nativeName, url, flag }) => (
+              <Link to={url} key={url} className={searchCountry}>
+                <img
+                  src={flag}
+                  className={searchCountryFlag}
+                  width="60"
+                  height="60"
+                  alt={name}
+                />
+                <p className={searchCountryTitle}>
+                  {name} - {nativeName}
+                </p>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </header>
   );
