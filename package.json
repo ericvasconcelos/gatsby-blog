@@ -31,6 +31,7 @@
     "gatsby-plugin-sass": "^4.9.0",
     "gatsby-plugin-sharp": "^3.9.0",
     "gatsby-plugin-sitemap": "^4.5.0",
+    "gatsby-source-custom-api": "^2.1.4",
     "gatsby-source-filesystem": "^3.9.0",
     "gatsby-transformer-sharp": "^3.9.0",
     "lmdb-store": "^1.6.3",

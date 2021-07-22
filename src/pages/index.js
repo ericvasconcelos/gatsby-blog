@@ -1,20 +1,22 @@
 import React, { memo } from 'react';
 import { graphql } from 'gatsby';
+import slugify from '~/utils/slugify';
 import Card from '~/components/card';
 import Hero from '~/components/hero';
 import Layout from '~/components/layout';
 import { cardList } from './index.module.scss';
 
 const IndexPage = ({ data }) => {
-  const countries = data.allSitePage.nodes;
+  const countries = data.allCountries.nodes;
 
   return (
     <Layout pageTitle="Home">
       <Hero />
       <div className={cardList}>
-        {countries.map(({ path, context }) => {
+        {countries.map((country) => {
+          const { id, name } = country;
           return (
-            context.name && <Card key={path} slug={path} content={context} />
+            name && <Card key={id} slug={slugify(name)} content={country} />
           );
         })}
       </div>
@@ -24,17 +26,14 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   {
-    allSitePage(skip: 30, limit: 10) {
+    allCountries(skip: 30, limit: 10) {
       nodes {
         id
-        path
-        context {
-          name
-          nativeName
-          region
-          flag
-          capital
-        }
+        name
+        nativeName
+        region
+        flag
+        capital
       }
     }
   }

@@ -1,34 +1,29 @@
 import React, { memo } from 'react';
 import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
+import slugify from '~/utils/slugify';
 import Header from '../header';
 import Footer from '../footer';
 import order from './order';
 import { container, heading, info, flagImg } from './country.module.scss';
 
-const CountryLayout = ({ pageContext }) => {
-  const { name, nativeName, flag, url, altSpellings } = pageContext;
-
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-          siteUrl
-        }
-      }
-    }
-  `);
+const CountryLayout = ({ data }) => {
+  const country = data.allCountries.edges[0].node;
+  const { siteMetadata } = data.site;
+  const { name, nativeName, flag, altSpellings } = country;
 
   return (
     <>
       <Helmet htmlAttributes={{ lang: 'en' }}>
         <meta charSet="utf-8" />
         <title>
-          {name} | {data.site.siteMetadata.title}
+          {name} | {siteMetadata.title}
         </title>
         <meta name="description" content={altSpellings.join(', ')} />
-        <link rel="canonical" href={data.site.siteMetadata.siteUrl + url} />
+        <link
+          rel="canonical"
+          href={siteMetadata.siteUrl + '/' + slugify(name)}
+        />
       </Helmet>
 
       <Header />
@@ -43,7 +38,7 @@ const CountryLayout = ({ pageContext }) => {
         {order.map(({ key, name, resolver }) => (
           <div className={info} key={key}>
             <b>{name}: </b>
-            {resolver(pageContext[key])}
+            {resolver(country[key])}
           </div>
         ))}
       </div>
@@ -52,5 +47,73 @@ const CountryLayout = ({ pageContext }) => {
     </>
   );
 };
+
+export const query = graphql`
+  query ($name: String!) {
+    allCountries(filter: { name: { eq: $name } }) {
+      edges {
+        node {
+          id
+          alpha2Code
+          alpha3Code
+          altSpellings
+          area
+          borders
+          callingCodes
+          capital
+          cioc
+          currencies {
+            code
+            name
+            symbol
+          }
+          demonym
+          flag
+          gini
+          languages {
+            iso639_1
+            iso639_2
+            name
+            nativeName
+          }
+          latlng
+          name
+          nativeName
+          numericCode
+          population
+          region
+          regionalBlocs {
+            acronym
+            name
+            otherAcronyms
+            otherNames
+          }
+          subregion
+          timezones
+          topLevelDomain
+          translations {
+            br
+            de
+            es
+            fa
+            fr
+            hr
+            id
+            it
+            ja
+            nl
+            pt
+          }
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        title
+        siteUrl
+      }
+    }
+  }
+`;
 
 export default memo(CountryLayout);

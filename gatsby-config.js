@@ -63,6 +63,14 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-custom-api',
+      options: {
+        url: 'https://restcountries.eu/rest/v2/all',
+        imageKeys: ['flag'],
+        rootKey: 'countries',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'UA-40075822-3',
@@ -110,16 +118,13 @@ module.exports = {
         // GraphQL query used to fetch all data for the search index. This is
         // required.
         query: `
-          query {
-            allSitePage {
+          {
+            allCountries {
               edges {
                 node {
-                  context {
-                    name
-                    nativeName
-                    flag
-                    url
-                  }
+                  name
+                  nativeName
+                  flag
                 }
               }
             }
@@ -127,7 +132,7 @@ module.exports = {
         `,
         // Field used as the reference value for each document.
         // Default: 'id'.
-        ref: 'url',
+        ref: 'name',
         // List of keys to index. The values of the keys are taken from the
         // normalizer function below.
         // Default: all fields
@@ -135,18 +140,18 @@ module.exports = {
         // List of keys to store and make available in your UI. The values of
         // the keys are taken from the normalizer function below.
         // Default: all fields
-        store: ['name', 'nativeName', 'flag', 'url'],
+        store: ['name', 'nativeName', 'flag'],
         // Function used to map the result from the GraphQL query. This should
         // return an array of items to index in the form of flat objects
         // containing properties to index. The objects must contain the `ref`
         // field above (default: 'id'). This is required.
         normalizer: ({ data }) =>
-          data.allSitePage.edges.map(({ node }) => {
+          data.allCountries.edges.map(({ node }) => {
             return {
-              name: node.context.name,
-              nativeName: node.context.nativeName,
-              flag: node.context.flag,
-              url: node.context.url,
+              name: node.name,
+              nativeName: node.nativeName,
+              flag: node.flag,
+              // url: node.url,
             };
           }),
       },

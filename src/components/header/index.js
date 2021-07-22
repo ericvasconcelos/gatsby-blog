@@ -2,6 +2,7 @@ import React, { memo, useState, useCallback } from 'react';
 import { Link } from 'gatsby';
 import { useStaticQuery, graphql } from 'gatsby';
 import { useFlexSearch } from 'react-use-flexsearch';
+import slugify from '~/utils/slugify';
 import Logo from './logo';
 import SearchIcon from './search';
 import {
@@ -32,8 +33,6 @@ const Header = () => {
   const {
     localSearchPages: { index, store },
   } = data;
-
-  console.log(data);
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchValue, setSearchValue] = useState('');
@@ -84,8 +83,12 @@ const Header = () => {
         </div>
         {results.length > 0 && (
           <div className={searchBox}>
-            {results.map(({ name, nativeName, url, flag }) => (
-              <Link to={url} key={url} className={searchCountry}>
+            {results.map(({ name, nativeName, flag }) => (
+              <Link
+                to={`/${slugify(name)}`}
+                key={name}
+                className={searchCountry}
+              >
                 <img
                   src={flag}
                   className={searchCountryFlag}
