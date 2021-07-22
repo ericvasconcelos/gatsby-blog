@@ -68,6 +68,64 @@ module.exports = {
         url: 'https://restcountries.eu/rest/v2/all',
         imageKeys: ['flag'],
         rootKey: 'countries',
+        // schemas: {
+        //   Languages: `
+        //     iso639_1: String
+        //     iso639_2: String
+        //     name: String
+        //     nativeName: String
+        //   `,
+        //   Currencies: `
+        //     code: String
+        //     name: String
+        //     symbol: String
+        //   `,
+        //   RegionBlocs: `
+        //     acronym: String
+        //     name: String
+        //     otherAcronyms: [String]
+        //     otherNames: [String]
+        //   `,
+        //   Translations: `
+        //     br: String
+        //     de: String
+        //     es: String
+        //     fa: String
+        //     fr: String
+        //     hr: String
+        //     it: String
+        //     ja: String
+        //     nl: String
+        //     pt: String
+        //   `,
+        //   countries: `
+        //     name: String
+        //     nativeName: String
+        //     flag: String
+        //     url: String
+        //     capital: String
+        //     population: Int
+        //     gini: Float
+        //     region: String
+        //     subregion: String
+        //     area: Int
+        //     latlng: [Int]
+        //     borders: [String]
+        //     timezones: [String]
+        //     numericCode: Int
+        //     callingCodes: [String]
+        //     topLevelDomain: [String]
+        //     cioc: String
+        //     alpha2Code: String
+        //     alpha3Code: String
+        //     demonym: String
+        //     languages: [Languages]
+        //     currencies: Currencies
+        //     regionalBlocs: RegionBlocs
+        //     translations: Translations
+        //     altSpellings: [String]
+        //   `,
+        // },
       },
     },
     {
